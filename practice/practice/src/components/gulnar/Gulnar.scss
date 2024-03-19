@@ -1,0 +1,12 @@
+$color : cyan;
+
+.likeBtn{
+    background-color: $color;
+    padding: 5px 10px;
+    border:none;
+    border-radius: 4px;
+
+    &:hover{
+        background-color: green;
+    }
+}
