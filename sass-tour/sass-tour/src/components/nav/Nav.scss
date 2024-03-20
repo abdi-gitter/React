@@ -1,0 +1,37 @@
+@import '../../scss/variables', '../../scss/mixins';
+
+.navbar{
+    display:flex;
+    justify-content: space-evenly;
+    background-color: $cardNavBgColor;
+
+    a{
+        color: white;
+        font-size: 2rem;
+        padding: 1rem;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover{
+            background-color: $backgroundColor;
+            color: $cardNavBgColor;
+        }
+    }
+}
+
+// TODO: change navbar to a column if screen is small
+// use media-sm mixin:
+@include media-xsm{
+    .navbar{
+        flex-direction: column;
+        text-align:center;
+    }
+}
+
+// otherwise, keep it as a row
+@include media-sm{
+    .navbar{
+        flex-direction: row;
+    }
+}
+

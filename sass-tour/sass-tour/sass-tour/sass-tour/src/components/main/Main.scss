@@ -1,0 +1,59 @@
+@import '../../scss/variables';
+
+.card-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .card{
+        background-color: $cardNavBgColor;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 7px;
+        box-shadow: 3px 3px 5px 6px #000;
+        position: relative;
+        overflow: hidden;
+
+        // TODO: add hover effect
+        &:hover .desc{
+            transform: translateY(0%);
+            // This moves the description up to where it would
+            // normally be if we didn't have translateY(100%)
+        }
+
+        .title{
+            // TODO use variables
+            color: $backgroundColor;
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        img{
+            width: 500px;
+            height: 350px;
+            object-fit: cover;
+            // TODO: discuss filter:
+            filter: grayscale(0%);
+
+            &:hover{
+                filter: grayscale(100%);
+            }
+        }
+
+        .desc{
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.7);
+            font-size: 1.5rem;
+            padding: 1rem;
+            // This moves the description down so it's not visible
+            // 100% here means the height of the element (itself)
+            transform: translateY(100%);
+            z-index: 1;
+            transition: transform 0.7s ease-in-out ;
+        }
+
+    }
+}
