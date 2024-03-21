@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>React Elements</title>
+</head>
+<body>
+
+<!-- Target Container -->
+<div id="react-container"></div>
+
+<!-- React Library & React DOM-->
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+
+    const dish = React.createElement("h1", null, "Baked Salmon")
+
+    ReactDOM.render(
+        dish,
+        document.getElementById('react-container')
+    )
+
+    console.log('dish', dish)
+
+</script>
+
+</body>
+</html>
+
+
+<!-- 
+    In the context of React and when discussing "root elements," 
+    what's typically meant is the DOM element to which a React 
+    application (or a part of it) is attached or rendered. This 
+    element itself can indeed be any HTML element that can 
+    contain other elements. React doesn't impose restrictions 
+    on the type of element that can serve as the root; what 
+    matters is that the element is capable of containing 
+    child elements, as it will serve as the container for 
+    your React component tree.
+
+When initializing a React application, you usually 
+specify a single DOM node as the entry point for your 
+React component hierarchy. This is done using `ReactDOM.render()` 
+in React versions prior to 18, and with `ReactDOM.createRoot()` 
+followed by `root.render()` in React 18 and newer versions. 
+The specified DOM node is often a `<div>` element, but it 
+    can be any element that suits your application's structure, 
+    such as `<main>`, `<section>`, or even `<body>` 
+        (though using `<body>` as your root is generally 
+            not recommended due to potential conflicts 
+            with other scripts or styles).
+
+### Example with a `<div>` Element
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>React App</title>
+</head>
+<body>
+    <div id="app-root"></div>
+    <script src="path/to/your/bundle.js"></script>
+</body>
+</html>
+```
+
+```javascript
+// React 17 and earlier
+ReactDOM.render(<App />, document.getElementById('app-root'));
+
+// React 18
+const root = ReactDOM.createRoot(document.getElementById('app-root'));
+root.render(<App />);
+```
+
+In this example, the `<div>` element with t
+    he ID of `app-root` serves as the root element 
+    for the React application.
+
+### Choosing a Root Element
+
+When deciding on what element to use as your root, 
+consider the following:
+
+- **Semantic HTML**: Choose an element that semantically 
+fits the content you're planning to render as part of 
+your React application.
+- **Isolation**: It's often a good idea to have a 
+dedicated container for your React app to avoid 
+unintentional interactions with other parts of the 
+page that are not managed by React.
+- **Multiple React Roots**: In applications where 
+you're incrementally adopting React, or only need 
+React for specific parts of the page, you might 
+have multiple root elements. Each root can 
+independently initialize different React component trees.
+
+### Conclusion
+
+Yes, the root element for a React application 
+can be any HTML element that serves as a suitable 
+container for your application's content. The 
+choice of element depends on your application's 
+structure and requirements, keeping in mind best 
+practices for semantic HTML and application isolation.
+ -->
